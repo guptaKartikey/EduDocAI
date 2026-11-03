@@ -1,0 +1,23 @@
+id,category,question,recall@1,recall@3,recall@5,mrr,f1,exact_match,citation_accuracy,abstention_accuracy,groundedness,retrieval_latency_ms,total_latency_ms,is_abstained
+Q01,Direct Factual,How many hours per week are full-time employees expected to work at TechCorp?,1.0,1.0,1.0,1.0,0.625,0.0,1.0,1.0,0.9,18.365599999015103,1641.0891999985324,False
+Q02,Direct Factual,What are the core collaboration hours defined by TechCorp?,1.0,1.0,1.0,1.0,0.5405405405405406,0.0,1.0,1.0,0.9048,18.737800000963034,21.909000000960077,False
+Q03,Numeric,What is the annual home-office stipend for remote employees?,1.0,1.0,1.0,1.0,0.25641025641025644,0.0,1.0,1.0,0.913,14.55789999999979,19.366599999557366,False
+Q04,Numeric,How many days of paid time off do new hires accrue in their first year?,1.0,1.0,1.0,1.0,0.5652173913043478,0.0,1.0,1.0,0.9048,54.40860000089742,58.88000000049942,False
+Q05,Direct Factual,How many days of PTO can be rolled over into the next calendar year?,1.0,1.0,1.0,1.0,0.5,0.0,1.0,1.0,0.9524,20.687099999122438,24.892299999919487,False
+Q06,Paraphrased,What portion of healthcare premiums does the company pay for workers and their families?,1.0,1.0,1.0,1.0,0.25,0.0,1.0,1.0,0.8696,21.232299999610404,24.987299999338575,False
+Q07,Numeric,What is the duration of paid parental leave for primary caregivers?,1.0,1.0,1.0,1.0,0.5405405405405406,0.0,1.0,1.0,0.9565,20.828000000619795,24.370700000872603,False
+Q08,Direct Factual,How much monthly reimbursement is available for gym and fitness?,1.0,1.0,1.0,1.0,0.5714285714285714,0.0,1.0,1.0,0.8,18.998899999132846,22.73069999864674,False
+Q09,Paraphrased,How many free therapy consultations are provided annually for psychological support?,1.0,1.0,1.0,1.0,0.08695652173913043,0.0,0.0,0.0,1.0,19.12379999885161,22.5784999984171,True
+Q10,Direct Factual,What is the default chunk size and overlap in EduDocAI?,1.0,1.0,1.0,1.0,0.7499999999999999,0.0,1.0,1.0,0.9375,18.051199998808443,21.35429999907501,False
+Q11,Paraphrased,Which Python library does EduDocAI use to extract text page-by-page from PDFs?,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,23.414799999954994,26.064499999847612,True
+Q12,Direct Factual,Why does EduDocAI process PDF streams in-memory using BytesIO?,1.0,1.0,1.0,1.0,0.5641025641025641,0.0,1.0,1.0,0.9643,17.094300001190277,20.08610000120825,False
+Q13,Numeric,What is the vector dimensionality produced by all-MiniLM-L6-v2 in EduDocAI?,1.0,1.0,1.0,1.0,0.13333333333333333,0.0,0.0,0.0,1.0,17.537000001539127,20.596200001818943,True
+Q14,Direct Factual,Which FAISS index type is used for vector search in EduDocAI?,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,16.567399999985355,19.001599999683094,True
+Q15,Direct Factual,What exact phrasing must EduDocAI use when the required information is missing?,0.0,1.0,1.0,0.5,0.8571428571428571,0.0,0.0,0.0,1.0,19.180400000550435,22.01710000008461,True
+Q16,Paraphrased,What are the rules regarding provenance and citing sources in Global AI Ethics?,1.0,1.0,1.0,1.0,0.08333333333333334,0.0,0.0,0.0,1.0,16.397800000049756,18.943999999464722,True
+Q17,Multi-document,How do EduDocAI system specifications align with the privacy recommendations in the AI Ethics Guidelines?,0.0,1.0,1.0,0.5,0.125,0.0,0.0,0.0,1.0,24.038400000790716,28.018400000291876,True
+Q18,Ambiguous,What is the leave policy?,0.0,1.0,1.0,0.5,0.23076923076923075,0.0,1.0,1.0,0.9091,14.921500000127708,18.35170000049402,False
+Q19,No Supporting Answer (Abstention),What is the company policy on annual stock option grants and equity vesting schedules?,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.8261,18.420999998852494,21.135299997695256,False
+Q20,No Supporting Answer (Abstention),How much budget is allocated for corporate business travel hotel accommodations?,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,18.27870000124676,19.83760000075563,True
+Q21,No Supporting Answer (Abstention),What is the quantum encryption protocol used in EduDocAI?,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,16.828499999974156,19.567200000892626,True
+Q22,Numeric,What smoothing constant k is used for Reciprocal Rank Fusion?,1.0,1.0,1.0,1.0,0.45454545454545453,0.0,1.0,1.0,0.8333,16.538600000785664,19.311700001708232,False

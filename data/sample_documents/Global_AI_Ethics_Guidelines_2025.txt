@@ -1,0 +1,15 @@
+[DEMONSTRATION SYNTHETIC DATASET - RESEARCH ETHICS POLICY]
+Global AI Governance & Safety Guidelines 2025
+
+Principle 1: Transparent Provenance and Attribution
+AI-assisted retrieval systems must explicitly cite primary sources down to the document name and page number.
+Hallucinated or fabricated citations constitute a critical violation of system integrity.
+
+Principle 2: Groundedness and Abstention
+If retrieved evidentiary context does not contain verifiable facts answering the user query,
+the system must explicitly abstain by stating: 'The requested information was not found in the uploaded documents.'
+Inventing plausible answers in high-stakes domains is strictly prohibited.
+
+Principle 3: Privacy and Ephemeral Processing
+User uploaded documents should never be persisted to external unsecured cloud services without explicit consent.
+In-memory processing and local model inference (such as Ollama) are recommended for sensitive organizational data.

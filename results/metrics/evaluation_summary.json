@@ -1,0 +1,59 @@
+{
+  "dataset_size": 22,
+  "dense_retrieval": {
+    "mean_recall@1": 0.8636363636363636,
+    "mean_recall@3": 1.0,
+    "mean_recall@5": 1.0,
+    "mrr": 0.9318181818181818,
+    "token_f1": 0.41519639069046177,
+    "citation_accuracy": 0.6363636363636364,
+    "abstention_accuracy": 0.6363636363636364,
+    "avg_groundedness": 0.9396090909090908,
+    "avg_retrieval_latency_ms": 20.19134545463947,
+    "avg_total_latency_ms": 97.04954545453471
+  },
+  "tfidf_retrieval": {
+    "mean_recall@1": 0.8636363636363636,
+    "mean_recall@3": 1.0,
+    "mean_recall@5": 1.0,
+    "mrr": 0.9242424242424242,
+    "token_f1": 0.3892223647164359,
+    "citation_accuracy": 0.5909090909090909,
+    "abstention_accuracy": 0.5909090909090909,
+    "avg_groundedness": 0.9463727272727273,
+    "avg_retrieval_latency_ms": 2.462463636468535,
+    "avg_total_latency_ms": 5.3974545455937255
+  },
+  "category_breakdown": {
+    "Ambiguous": {
+      "recall@3": 1.0,
+      "f1": 0.23076923076923075,
+      "abstention_accuracy": 1.0
+    },
+    "Direct Factual": {
+      "recall@3": 1.0,
+      "f1": 0.5510268166518166,
+      "abstention_accuracy": 0.75
+    },
+    "Multi-document": {
+      "recall@3": 1.0,
+      "f1": 0.125,
+      "abstention_accuracy": 0.0
+    },
+    "No Supporting Answer (Abstention)": {
+      "recall@3": 1.0,
+      "f1": 0.6666666666666666,
+      "abstention_accuracy": 0.6666666666666666
+    },
+    "Numeric": {
+      "recall@3": 1.0,
+      "f1": 0.39000939522678657,
+      "abstention_accuracy": 0.8
+    },
+    "Paraphrased": {
+      "recall@3": 1.0,
+      "f1": 0.10507246376811594,
+      "abstention_accuracy": 0.25
+    }
+  }
+}

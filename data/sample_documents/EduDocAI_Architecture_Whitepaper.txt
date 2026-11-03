@@ -1,0 +1,24 @@
+[DEMONSTRATION SYNTHETIC DATASET - RESEARCH ARCHITECTURE DOCUMENT]
+EduDocAI System Architecture & Engineering Specifications
+
+1. Pipeline Overview
+EduDocAI uses a hybrid retrieval-augmented generation (RAG) architecture.
+Document ingestion processes PDF and text streams in-memory using BytesIO to prevent OS file locks.
+Text is extracted page-by-page using PyMuPDF, preserving document ID, source filename, and page numbers.
+
+2. Chunking Configuration
+The default chunk size is 400 tokens with an overlap of 60 tokens.
+Sentence-boundary segmentation is performed using regular expression boundary heuristics to avoid truncating propositions.
+
+
+[DEMONSTRATION SYNTHETIC DATASET - RESEARCH ARCHITECTURE DOCUMENT]
+EduDocAI System Architecture & Engineering Specifications
+
+3. Embedding and Vector Indexing
+Dense retrieval uses the sentence-transformers all-MiniLM-L6-v2 model, producing 384-dimensional dense vectors.
+Vectors are normalized using L2 normalization to allow inner-product calculation to represent exact cosine similarity.
+FAISS IndexFlatIP is employed for vector indexing.
+
+4. Sparse TF-IDF Baseline
+TF-IDF vectors are constructed using sublinear term frequency scaling and bi-gram ranges (1, 2).
+Reciprocal Rank Fusion (RRF) with constant k=60 is available for hybrid reranking.

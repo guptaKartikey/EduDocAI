@@ -1,0 +1,222 @@
+[
+  {
+    "id": "Q01",
+    "category": "Direct Factual",
+    "question": "How many hours per week are full-time employees expected to work at TechCorp?",
+    "expected_answer": "Full-time employees are expected to work 40 hours per week.",
+    "relevant_document": "TechCorp_Employee_Handbook_2025.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "Full-time employees are expected to work 40 hours per week.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q02",
+    "category": "Direct Factual",
+    "question": "What are the core collaboration hours defined by TechCorp?",
+    "expected_answer": "Core collaboration hours are 10:00 AM to 3:00 PM EST.",
+    "relevant_document": "TechCorp_Employee_Handbook_2025.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "Core collaboration hours are 10:00 AM to 3:00 PM EST.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q03",
+    "category": "Numeric",
+    "question": "What is the annual home-office stipend for remote employees?",
+    "expected_answer": "The annual home-office stipend is ,200.",
+    "relevant_document": "TechCorp_Employee_Handbook_2025.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "Every remote employee is eligible for an annual home-office stipend of ,200",
+    "is_abstention": false
+  },
+  {
+    "id": "Q04",
+    "category": "Numeric",
+    "question": "How many days of paid time off do new hires accrue in their first year?",
+    "expected_answer": "New hires accrue 18 days of paid time off during their first year.",
+    "relevant_document": "TechCorp_Employee_Handbook_2025.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "New hires accrue 18 days of paid time off during their first year of employment.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q05",
+    "category": "Direct Factual",
+    "question": "How many days of PTO can be rolled over into the next calendar year?",
+    "expected_answer": "A maximum of 5 days of unused PTO can be rolled over.",
+    "relevant_document": "TechCorp_Employee_Handbook_2025.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "Unused PTO can be rolled over up to a maximum of 5 days into the following calendar year.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q06",
+    "category": "Paraphrased",
+    "question": "What portion of healthcare premiums does the company pay for workers and their families?",
+    "expected_answer": "TechCorp covers 90% of health insurance premiums for employees and 75% for eligible dependents.",
+    "relevant_document": "TechCorp_Employee_Handbook_2025.pdf",
+    "relevant_page": 2,
+    "expected_evidence": "TechCorp covers 90% of health insurance premiums for employees and 75% for eligible dependents.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q07",
+    "category": "Numeric",
+    "question": "What is the duration of paid parental leave for primary caregivers?",
+    "expected_answer": "Primary caregivers receive 16 weeks of fully paid parental leave.",
+    "relevant_document": "TechCorp_Employee_Handbook_2025.pdf",
+    "relevant_page": 2,
+    "expected_evidence": "All primary caregivers are entitled to 16 weeks of fully paid parental leave",
+    "is_abstention": false
+  },
+  {
+    "id": "Q08",
+    "category": "Direct Factual",
+    "question": "How much monthly reimbursement is available for gym and fitness?",
+    "expected_answer": "Employees receive a  monthly gym or fitness reimbursement.",
+    "relevant_document": "TechCorp_Employee_Handbook_2025.pdf",
+    "relevant_page": 2,
+    "expected_evidence": "Wellness benefits include a  monthly gym or fitness reimbursement.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q09",
+    "category": "Paraphrased",
+    "question": "How many free therapy consultations are provided annually for psychological support?",
+    "expected_answer": "10 free confidential therapy sessions per year are provided through the Employee Assistance Program.",
+    "relevant_document": "TechCorp_Employee_Handbook_2025.pdf",
+    "relevant_page": 2,
+    "expected_evidence": "Mental health support includes 10 free confidential therapy sessions per year",
+    "is_abstention": false
+  },
+  {
+    "id": "Q10",
+    "category": "Direct Factual",
+    "question": "What is the default chunk size and overlap in EduDocAI?",
+    "expected_answer": "The default chunk size is 400 tokens with an overlap of 60 tokens.",
+    "relevant_document": "EduDocAI_Architecture_Whitepaper.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "The default chunk size is 400 tokens with an overlap of 60 tokens.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q11",
+    "category": "Paraphrased",
+    "question": "Which Python library does EduDocAI use to extract text page-by-page from PDFs?",
+    "expected_answer": "EduDocAI uses PyMuPDF for page-by-page text extraction.",
+    "relevant_document": "EduDocAI_Architecture_Whitepaper.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "Text is extracted page-by-page using PyMuPDF",
+    "is_abstention": false
+  },
+  {
+    "id": "Q12",
+    "category": "Direct Factual",
+    "question": "Why does EduDocAI process PDF streams in-memory using BytesIO?",
+    "expected_answer": "EduDocAI processes PDF streams in-memory using BytesIO to prevent OS file locks.",
+    "relevant_document": "EduDocAI_Architecture_Whitepaper.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "Document ingestion processes PDF and text streams in-memory using BytesIO to prevent OS file locks.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q13",
+    "category": "Numeric",
+    "question": "What is the vector dimensionality produced by all-MiniLM-L6-v2 in EduDocAI?",
+    "expected_answer": "The model produces 384-dimensional dense vectors.",
+    "relevant_document": "EduDocAI_Architecture_Whitepaper.pdf",
+    "relevant_page": 2,
+    "expected_evidence": "all-MiniLM-L6-v2 model, producing 384-dimensional dense vectors.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q14",
+    "category": "Direct Factual",
+    "question": "Which FAISS index type is used for vector search in EduDocAI?",
+    "expected_answer": "FAISS IndexFlatIP is employed for vector indexing.",
+    "relevant_document": "EduDocAI_Architecture_Whitepaper.pdf",
+    "relevant_page": 2,
+    "expected_evidence": "FAISS IndexFlatIP is employed for vector indexing.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q15",
+    "category": "Direct Factual",
+    "question": "What exact phrasing must EduDocAI use when the required information is missing?",
+    "expected_answer": "The system must state: The requested information was not found in the uploaded documents.",
+    "relevant_document": "Global_AI_Ethics_Guidelines_2025.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "The requested information was not found in the uploaded documents.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q16",
+    "category": "Paraphrased",
+    "question": "What are the rules regarding provenance and citing sources in Global AI Ethics?",
+    "expected_answer": "AI-assisted systems must explicitly cite primary sources down to the document name and page number.",
+    "relevant_document": "Global_AI_Ethics_Guidelines_2025.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "AI-assisted retrieval systems must explicitly cite primary sources down to the document name and page number.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q17",
+    "category": "Multi-document",
+    "question": "How do EduDocAI system specifications align with the privacy recommendations in the AI Ethics Guidelines?",
+    "expected_answer": "EduDocAI uses in-memory BytesIO processing and local inference (like Ollama), aligning with the ethics recommendation to avoid persisting sensitive documents to external cloud services.",
+    "relevant_document": "EduDocAI_Architecture_Whitepaper.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "In-memory processing and local model inference (such as Ollama) are recommended for sensitive organizational data.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q18",
+    "category": "Ambiguous",
+    "question": "What is the leave policy?",
+    "expected_answer": "TechCorp provides 18 days PTO (25 after 3 years), 5 days rollover, and 16 weeks parental leave for primary caregivers (8 weeks for secondary).",
+    "relevant_document": "TechCorp_Employee_Handbook_2025.pdf",
+    "relevant_page": 1,
+    "expected_evidence": "New hires accrue 18 days of paid time off during their first year of employment.",
+    "is_abstention": false
+  },
+  {
+    "id": "Q19",
+    "category": "No Supporting Answer (Abstention)",
+    "question": "What is the company policy on annual stock option grants and equity vesting schedules?",
+    "expected_answer": "The requested information was not found in the uploaded documents.",
+    "relevant_document": null,
+    "relevant_page": null,
+    "expected_evidence": null,
+    "is_abstention": true
+  },
+  {
+    "id": "Q20",
+    "category": "No Supporting Answer (Abstention)",
+    "question": "How much budget is allocated for corporate business travel hotel accommodations?",
+    "expected_answer": "The requested information was not found in the uploaded documents.",
+    "relevant_document": null,
+    "relevant_page": null,
+    "expected_evidence": null,
+    "is_abstention": true
+  },
+  {
+    "id": "Q21",
+    "category": "No Supporting Answer (Abstention)",
+    "question": "What is the quantum encryption protocol used in EduDocAI?",
+    "expected_answer": "The requested information was not found in the uploaded documents.",
+    "relevant_document": null,
+    "relevant_page": null,
+    "expected_evidence": null,
+    "is_abstention": true
+  },
+  {
+    "id": "Q22",
+    "category": "Numeric",
+    "question": "What smoothing constant k is used for Reciprocal Rank Fusion?",
+    "expected_answer": "Reciprocal Rank Fusion uses constant k=60.",
+    "relevant_document": "EduDocAI_Architecture_Whitepaper.pdf",
+    "relevant_page": 2,
+    "expected_evidence": "Reciprocal Rank Fusion (RRF) with constant k=60 is available for hybrid reranking.",
+    "is_abstention": false
+  }
+]
