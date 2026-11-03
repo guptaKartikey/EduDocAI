@@ -180,17 +180,60 @@ When local LLM inference (Ollama) is offline, the system utilizes a deterministi
 2. **Complex Tables**: Multi-column ASCII tables may experience word wrap in linear extraction. *Mitigation*: Integrate layout-aware PDF parsers like `pdfplumber`.
 
 ### 6.3 Responsible AI & Security Boundaries
-- **Privacy**: In-memory BytesIO extraction ensures user documents are never uploaded to third-party public clouds or persisted to disk without authorization.
-- **Intended Use**: Designed for informational document search and question answering with human-in-the-loop verification. Not certified as a standalone legal or clinical decision agent.
+
+**Privacy & Data Handling:**
+All user-uploaded documents are processed entirely in-memory using `io.BytesIO` streams. No document content is written to disk, logged, transmitted to any third-party cloud service, or retained between sessions. Each Streamlit session maintains its own isolated state — one user's documents are never visible to another session.
+
+**Intended Use & Scope:**
+EduDocAI is designed for informational document Q&A with human-in-the-loop verification. It is not certified or intended for standalone use in legal, medical, financial, or clinical decision-making. All answers should be verified against the cited source page before acting on them for high-stakes decisions. The system's abstention mechanism ("not found") is a safety feature, not a guarantee of completeness.
+
+**Fairness & Bias:**
+The system's answers are grounded in the content of the documents provided by the user. It does not introduce external knowledge or cultural bias from a pre-trained language model when running in extractive mode. In LLM mode (Ollama), the underlying model's training biases may influence phrasing — but factual claims are still gated by the grounding validator against the source text.
+
+**Security & Adversarial Robustness:**
+Ten adversarial inputs were tested (see `reports/attack_log.md`), including prompt injection, data exfiltration requests, jailbreak attempts via role assignment, and false-premise manipulation. All 10 passed. The extractive pipeline is inherently resistant to prompt injection because the core answer engine is a deterministic scoring function, not an instruction-following language model.
+
+**Uncertainty & Limitations:**
+- The system does not process scanned (image-only) PDFs — requires OCR integration.
+- Complex multi-column tables may extract incorrectly in linear text mode.
+- The 22-question evaluation benchmark, while covering 6 categories, may not fully represent the diversity of real-world user queries.
+- Performance on non-English documents has not been evaluated.
 
 ---
 
 ## 7. Conclusion and Prioritised Next Steps
 
 ### 7.1 Conclusion
-The **EduRankAI Track C** implementation successfully proves that a disciplined, well-evaluated RAG architecture with sentence-boundary chunking, document-level isolation, and dual retrieval outperforms naive LLM implementations. It achieves **100% Recall@3**, **0.9318 MRR**, and **90.91% citation/abstention accuracy** with sub-35ms CPU latency.
+The EduDocAI Track C implementation successfully demonstrates that a disciplined, well-evaluated RAG architecture with sentence-boundary chunking, document-level pre-retrieval filtering, and dual retrieval (Dense + TF-IDF) outperforms naive approaches. It achieves **100% Recall@3**, **0.9318 MRR**, and **90.91% citation/abstention accuracy** with sub-35ms CPU latency — running fully offline without any paid API.
+
+Live system: https://edudocai.streamlit.app/
+Source code: https://github.com/guptaKartikey/EduDocAI
 
 ### 7.2 Prioritised Next Steps
-1. **Cross-Encoder Neural Reranking**: Incorporate `ms-marco-MiniLM-L-6-v2` cross-encoder for multi-hop synthesis.
-2. **Layout-Aware PDF Extraction**: Parse structured financial and academic tables into Markdown format prior to vectorization.
-3. **Persistent Vector Indexing**: Support on-disk ChromaDB/FAISS serialization for corpora exceeding 100,000 pages.
+1. **OCR Integration**: Add `pytesseract` or `easyocr` to support scanned/image PDFs, which currently cannot be processed.
+2. **Layout-Aware Extraction**: Integrate `pdfplumber` for structured table and multi-column extraction to improve accuracy on financial and academic documents.
+3. **Cross-Encoder Reranking**: Add `ms-marco-MiniLM-L-6-v2` cross-encoder for improved multi-hop and paraphrase-heavy queries.
+4. **Persistent Index Storage**: Support ChromaDB or on-disk FAISS serialization to avoid re-indexing large corpora on every app restart.
+5. **Embedding-Based Grounding**: Replace token-overlap grounding with semantic embedding similarity for more accurate paraphrase-aware validation.
+
+---
+
+## 8. Contribution Statement
+
+**This project represents my own original work.** The system architecture, chunking strategy, retrieval pipeline design, grounding validation logic, evaluation dataset curation, and written analysis are my own engineering and analytical decisions.
+
+**AI tools used:**
+- **Google Gemini / Antigravity (AI coding assistant):** Used to accelerate boilerplate code generation (Streamlit UI layout, pytest test scaffolding, CSS styling). All generated code was reviewed, tested, and understood before inclusion. I can explain and modify any line of this codebase.
+- **No AI-generated text was used in the evaluation results, metric calculations, or experimental conclusions** — all numbers are computed by the actual pipeline on the actual benchmark data.
+
+**Third-party libraries and components:**
+- `sentence-transformers` (Apache 2.0) — embedding model
+- `faiss-cpu` (MIT) — vector index
+- `scikit-learn` (BSD-3) — TF-IDF vectorizer
+- `PyMuPDF / fitz` (AGPL-3.0) — PDF extraction
+- `Streamlit` (Apache 2.0) — UI framework
+- `pytest` (MIT) — testing framework
+
+**Data:** All benchmark documents (`data/sample_documents/`) were created specifically for this evaluation under an open demonstration license (CC-BY 4.0 compatible). No confidential, personal, or institutional data was used.
+
+**Declaration:** I confirm that the submitted work accurately represents my contribution. I have identified all external sources and disclosed AI tools used. I understand I may be asked to explain or reproduce any part of this implementation.
