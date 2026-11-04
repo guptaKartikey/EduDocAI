@@ -439,7 +439,42 @@ Source code: https://github.com/guptaKartikey/EduDocAI</p>
 <li><strong>Embedding-Based Grounding</strong>: Replace token-overlap grounding with semantic embedding similarity for more accurate paraphrase-aware validation.</li>
 </ol>
 <hr />
-<h2>8. Contribution Statement</h2>
+<h2>8. Daily Build &amp; Execution Log (3-Day Build Assessment)</h2>
+<p>As required by the candidate brief, the end-to-end development was tracked through daily structured check-ins documenting completed milestones, technical blockers, hours invested, and engineering decisions.</p>
+<h3>8.1 Day 1: Knowledge Ingestion, Baselines, and Measurement</h3>
+<ul>
+<li><strong>Milestones Completed</strong>:</li>
+<li>Established modular project architecture: ingestion, sentence-aware chunking, vector indexing, and retrieval.</li>
+<li>Built and benchmarked the Sparse TF-IDF baseline retriever as the benchmark anchor (Recall@3 = 100%, MRR = 0.9242) across 22 annotated ground-truth test cases.</li>
+<li>Discovered and resolved Windows OS file-locking permissions (<code>[WinError 32]</code>) by transitioning from disk writes to pure in-memory <code>io.BytesIO</code> streams.</li>
+<li>Completed dataset provenance audit, data dictionary, and leakage-prevention protocols.</li>
+<li><strong>Key Challenge &amp; Recovery</strong>: PyMuPDF failed on temporary file access under Windows file locks. Re-architected ingestion to pass byte streams directly to <code>fitz.open(stream=..., filetype="pdf")</code>, completely eliminating disk I/O.</li>
+<li><strong>Time Invested</strong>: ~5.5 focused hours.</li>
+</ul>
+<h3>8.2 Day 2: Semantic Retrieval, Grounding Gate, and Adversarial Hardening</h3>
+<ul>
+<li><strong>Milestones Completed</strong>:</li>
+<li>Implemented Dense Semantic Retrieval using <code>sentence-transformers/all-MiniLM-L6-v2</code> and FAISS inner-product vector search.</li>
+<li>Developed pre-retrieval candidate masking to prevent cross-document contamination during multi-file indexing.</li>
+<li>Built automated Grounding &amp; Citation Validator enforcing token-level evidence verification and zero-hallucination abstention.</li>
+<li>Profiling and resolving evaluation latency: eliminated a 4-second socket probe delay on offline Ollama checks via a 30-second TTL availability cache (reducing total eval time from 66s to 2.61s).</li>
+<li>Executed 10 adversarial attacks (prompt injection, exfiltration, persona jailbreak) with 100% safety pass rate.</li>
+<li><strong>Key Challenge &amp; Recovery</strong>: Broad summarization queries initially triggered false-positive abstentions due to strict lexical overlap thresholds. Solved by implementing an intent-aware classifier with adaptive grounding thresholds for summary requests.</li>
+<li><strong>Time Invested</strong>: ~6.0 focused hours.</li>
+</ul>
+<h3>8.3 Day 3: Usability, Packaging, and Production Readiness</h3>
+<ul>
+<li><strong>Milestones Completed</strong>:</li>
+<li>Streamlined Streamlit application into a clean 3-page production workflow (Home &amp; Upload, Chat with Documents, Evaluation Dashboard).</li>
+<li>Built 1-click Benchmark Sample Document loader (<code>TechCorp</code>, <code>AI Ethics</code>, <code>Whitepaper</code>) for instant reviewer reproducibility.</li>
+<li>Created automated regression test guard (<code>scripts/regression_check.py</code>) enforcing metric quality gates.</li>
+<li>Embedded unified brand visual identity (logo, typography, clean contrast footer) across all application pages.</li>
+<li>Authored comprehensive Failure &amp; Recovery Log (<code>FAILURES.md</code>) and operational founder memo (<code>reports/decision_memo.md</code>).</li>
+<li>Deployed live production app to Streamlit Community Cloud and synchronized the complete repository on GitHub.</li>
+<li><strong>Time Invested</strong>: ~5.0 focused hours.</li>
+</ul>
+<hr />
+<h2>9. Contribution Statement</h2>
 <p><strong>This project represents my own original work.</strong> The system architecture, chunking strategy, retrieval pipeline design, grounding validation logic, evaluation dataset curation, and written analysis are my own engineering and analytical decisions.</p>
 <p><strong>AI tools used:</strong><br />
 - <strong>Google Gemini / Antigravity (AI coding assistant):</strong> Used to accelerate boilerplate code generation (Streamlit UI layout, pytest test scaffolding, CSS styling). All generated code was reviewed, tested, and understood before inclusion. I can explain and modify any line of this codebase.<br />

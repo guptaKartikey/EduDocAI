@@ -218,7 +218,42 @@ Source code: https://github.com/guptaKartikey/EduDocAI
 
 ---
 
-## 8. Contribution Statement
+## 8. Daily Build & Execution Log (3-Day Build Assessment)
+
+As required by the candidate brief, the end-to-end development was tracked through daily structured check-ins documenting completed milestones, technical blockers, hours invested, and engineering decisions.
+
+### 8.1 Day 1: Knowledge Ingestion, Baselines, and Measurement
+* **Milestones Completed**:
+  - Established modular project architecture: ingestion, sentence-aware chunking, vector indexing, and retrieval.
+  - Built and benchmarked the Sparse TF-IDF baseline retriever as the benchmark anchor (Recall@3 = 100%, MRR = 0.9242) across 22 annotated ground-truth test cases.
+  - Discovered and resolved Windows OS file-locking permissions (`[WinError 32]`) by transitioning from disk writes to pure in-memory `io.BytesIO` streams.
+  - Completed dataset provenance audit, data dictionary, and leakage-prevention protocols.
+* **Key Challenge & Recovery**: PyMuPDF failed on temporary file access under Windows file locks. Re-architected ingestion to pass byte streams directly to `fitz.open(stream=..., filetype="pdf")`, completely eliminating disk I/O.
+* **Time Invested**: ~5.5 focused hours.
+
+### 8.2 Day 2: Semantic Retrieval, Grounding Gate, and Adversarial Hardening
+* **Milestones Completed**:
+  - Implemented Dense Semantic Retrieval using `sentence-transformers/all-MiniLM-L6-v2` and FAISS inner-product vector search.
+  - Developed pre-retrieval candidate masking to prevent cross-document contamination during multi-file indexing.
+  - Built automated Grounding & Citation Validator enforcing token-level evidence verification and zero-hallucination abstention.
+  - Profiling and resolving evaluation latency: eliminated a 4-second socket probe delay on offline Ollama checks via a 30-second TTL availability cache (reducing total eval time from 66s to 2.61s).
+  - Executed 10 adversarial attacks (prompt injection, exfiltration, persona jailbreak) with 100% safety pass rate.
+* **Key Challenge & Recovery**: Broad summarization queries initially triggered false-positive abstentions due to strict lexical overlap thresholds. Solved by implementing an intent-aware classifier with adaptive grounding thresholds for summary requests.
+* **Time Invested**: ~6.0 focused hours.
+
+### 8.3 Day 3: Usability, Packaging, and Production Readiness
+* **Milestones Completed**:
+  - Streamlined Streamlit application into a clean 3-page production workflow (Home & Upload, Chat with Documents, Evaluation Dashboard).
+  - Built 1-click Benchmark Sample Document loader (`TechCorp`, `AI Ethics`, `Whitepaper`) for instant reviewer reproducibility.
+  - Created automated regression test guard (`scripts/regression_check.py`) enforcing metric quality gates.
+  - Embedded unified brand visual identity (logo, typography, clean contrast footer) across all application pages.
+  - Authored comprehensive Failure & Recovery Log (`FAILURES.md`) and operational founder memo (`reports/decision_memo.md`).
+  - Deployed live production app to Streamlit Community Cloud and synchronized the complete repository on GitHub.
+* **Time Invested**: ~5.0 focused hours.
+
+---
+
+## 9. Contribution Statement
 
 **This project represents my own original work.** The system architecture, chunking strategy, retrieval pipeline design, grounding validation logic, evaluation dataset curation, and written analysis are my own engineering and analytical decisions.
 
